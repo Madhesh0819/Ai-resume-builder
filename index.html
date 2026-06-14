@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Resume builder controls">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <rect x="12" y="8" width="40" height="48" rx="8"></rect>
+              <path d="M22 22h20M22 32h16M22 42h12"></path>
+              <circle cx="46" cy="46" r="8"></circle>
+              <path d="M43 46l2 2 5-6"></path>
+            </svg>
+          </div>
+          <div>
+            <h1>AI Resume Builder</h1>
+            <p>Craft, score, and polish your resume.</p>
+          </div>
+        </div>
+
+        <nav class="section-tabs" aria-label="Builder sections">
+          <button class="tab active" data-panel="profilePanel">Profile</button>
+          <button class="tab" data-panel="experiencePanel">Experience</button>
+          <button class="tab" data-panel="skillsPanel">Skills</button>
+        </nav>
+
+        <form id="resumeForm">
+          <section class="panel active" id="profilePanel" aria-label="Profile details">
+            <label>
+              Full name
+              <input id="fullName" type="text" value="Avery Morgan" />
+            </label>
+            <label>
+              Target role
+              <input id="targetRole" type="text" value="Product Manager" />
+            </label>
+            <label>
+              Email
+              <input id="email" type="email" value="avery.morgan@email.com" />
+            </label>
+            <label>
+              Phone
+              <input id="phone" type="tel" value="(555) 018-2049" />
+            </label>
+            <label>
+              Location
+              <input id="location" type="text" value="Austin, TX" />
+            </label>
+            <label>
+              Links
+              <input id="links" type="text" value="linkedin.com/in/averymorgan | averymorgan.com" />
+            </label>
+            <label>
+              Professional summary
+              <textarea id="summary" rows="5">Product manager with 6+ years of experience leading discovery, launch planning, and growth experiments for B2B SaaS products.</textarea>
+            </label>
+          </section>
+
+          <section class="panel" id="experiencePanel" aria-label="Experience details">
+            <label>
+              Current company
+              <input id="company" type="text" value="Northstar Analytics" />
+            </label>
+            <label>
+              Recent wins
+              <textarea id="wins" rows="6">Launched self-serve onboarding
+Improved activation rate by 24%
+Led cross-functional roadmap rituals
+Reduced enterprise support tickets by 18%</textarea>
+            </label>
+            <label>
+              Education
+              <textarea id="education" rows="4">MBA, University of Texas
+BS Computer Science, Arizona State University</textarea>
+            </label>
+          </section>
+
+          <section class="panel" id="skillsPanel" aria-label="Skills and preferences">
+            <label>
+              Skills
+              <textarea id="skills" rows="5">Product strategy, customer discovery, SQL, analytics, roadmap planning, experimentation, stakeholder management</textarea>
+            </label>
+            <label>
+              Keywords from job description
+              <textarea id="keywords" rows="5">roadmap, discovery, analytics, SaaS, launch, experimentation, customer insights</textarea>
+            </label>
+            <div class="theme-block">
+              <span>Resume theme</span>
+              <div class="swatches" role="radiogroup" aria-label="Resume theme">
+                <button type="button" class="swatch active" data-theme="sage" aria-label="Sage theme"></button>
+                <button type="button" class="swatch blue" data-theme="blue" aria-label="Blue theme"></button>
+                <button type="button" class="swatch coral" data-theme="coral" aria-label="Coral theme"></button>
+              </div>
+            </div>
+          </section>
+        </form>
+
+        <div class="actions">
+          <button id="generateBtn" class="primary" type="button">
+            <span aria-hidden="true">AI</span>
+            Generate resume
+          </button>
+          <button id="printBtn" class="secondary" type="button">
+            <span aria-hidden="true">PDF</span>
+            Download PDF
+          </button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <section class="score-band" aria-label="Resume quality score">
+          <div>
+            <span class="eyebrow">ATS readiness</span>
+            <strong id="score">86</strong>
+          </div>
+          <div class="meter" aria-hidden="true"><span id="scoreFill"></span></div>
+          <p id="scoreNote">Strong match. Add one more measurable result for a sharper score.</p>
+        </section>
+
+        <section class="resume-stage" aria-label="Resume preview">
+          <article id="resumePreview" class="resume theme-sage">
+            <header>
+              <div>
+                <h2>Avery Morgan</h2>
+                <p class="role">Product Manager</p>
+              </div>
+              <p class="contact">avery.morgan@email.com | (555) 018-2049 | Austin, TX<br />linkedin.com/in/averymorgan | averymorgan.com</p>
+            </header>
+
+            <section>
+              <h3>Summary</h3>
+              <p id="previewSummary">Product manager with 6+ years of experience leading discovery, launch planning, and growth experiments for B2B SaaS products.</p>
+            </section>
+
+            <section>
+              <h3>Experience</h3>
+              <div class="job-heading">
+                <strong id="previewRole">Product Manager</strong>
+                <span id="previewCompany">Northstar Analytics</span>
+              </div>
+              <ul id="previewBullets">
+                <li>Launched self-serve onboarding to improve activation rate by 24% while aligning product, design, and go-to-market partners.</li>
+                <li>Led cross-functional roadmap rituals that clarified ownership and reduced enterprise support tickets by 18%.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Skills</h3>
+              <p id="previewSkills">Product strategy, customer discovery, SQL, analytics, roadmap planning, experimentation, stakeholder management</p>
+            </section>
+
+            <section>
+              <h3>Education</h3>
+              <p id="previewEducation">MBA, University of Texas<br />BS Computer Science, Arizona State University</p>
+            </section>
+          </article>
+        </section>
+
+        <section class="insights" aria-label="AI recommendations">
+          <h2>Smart suggestions</h2>
+          <div id="suggestions" class="suggestion-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
