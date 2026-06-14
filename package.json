@@ -1,0 +1,25 @@
+{
+  "name": "ai-resume-builder",
+  "version": "1.0.0",
+  "description": "AI Resume Builder - Craft, score, and polish your resume",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madhesh0819/Ai-resume-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Madhesh0819/Ai-resume-builder/issues"
+  },
+  "homepage": "https://github.com/Madhesh0819/Ai-resume-builder#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
